@@ -3,6 +3,7 @@ const flipBoxBack = document.querySelectorAll('.flipBoxBack');
 for(let i = 0; i < flipBoxFront.length; i++) {
   flipBoxFront[i].style.backgroundImage = 'url(images/turn/flip'+[i + 1]+'.jpg)';
   flipBoxBack[i].style.backgroundImage = 'url(images/turn/back'+[i + 1]+'.jpg)';
+  //test
 }
 
 
