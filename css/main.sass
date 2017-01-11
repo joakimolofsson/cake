@@ -19,6 +19,9 @@ $darkgrey: #2f2f33
   width: 100%
   z-index: 1
 
+  h1
+    display: none
+
   ul
     list-style: none
     text-align: center
@@ -272,3 +275,84 @@ $darkgrey: #2f2f33
 
 
 @media only screen and (max-width: 560px)
+
+  .cakes
+
+    .cakeBox
+
+      .smallCakeBox
+        width: 80%
+        margin: 20px auto
+        display: block
+
+  .parallax
+    height: 400px
+    background-attachment: initial
+
+  .about
+
+    .aboutBox
+      display: inline-block
+      width: 100%
+
+  .contact
+
+    h1
+      margin-bottom: 30px
+
+    .contactBox
+      text-align: center
+      width: 100%
+
+      p
+        float: none
+
+      ul
+        position: relative
+        bottom: 0
+        margin-bottom: 20px
+
+      img
+        float: none
+
+
+
+@media only screen and (max-width: 490px)
+
+  .header
+    position: relative
+
+    ul
+
+      li
+
+        &:nth-child(1)
+          display: none
+
+        &:nth-child(2)
+          display: none
+
+        &:nth-child(4)
+          display: none
+
+        &:nth-child(5)
+          display: none
+
+  .flip
+
+    h1
+      margin-top: 90px
+      font-size: 40px
+      border-bottom: none
+
+  .about
+
+    h1
+      font-size: 40px
+
+  .contact
+
+    .contactBox
+
+      img
+        width: 60%
