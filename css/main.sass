@@ -15,9 +15,6 @@ $darkgrey: #2f2f33
 .header
   background: $orange
   padding: 0 20px 20px 20px
-  position: fixed
-  width: 100%
-  z-index: 1
 
   h1
     display: none
@@ -47,9 +44,14 @@ $darkgrey: #2f2f33
         z-index: 1
         cursor: default
 
+.headerActive
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  z-index: 10
 
 .flip
-  padding-top: 67px
 
   h1
     display: none
@@ -63,6 +65,7 @@ $darkgrey: #2f2f33
       display: inline-block
       float: left
       perspective: 500px
+      z-index: 20
 
       .flipBoxFront
         position: absolute
@@ -118,6 +121,9 @@ $darkgrey: #2f2f33
     p
       color: $darkorange
       margin-top: 5px
+
+.cakesReset
+  padding: 30px 0
 
 .parallax
   width: 100%
