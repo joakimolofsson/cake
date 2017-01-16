@@ -1,13 +1,54 @@
+const headBtn = document.querySelectorAll('.headBtn');
+for(let i = 0, len = headBtn.length; i < len; i++) {
+    headBtn[i].addEventListener('click',scrollToDiv);
+}
+
+function scrollToDiv() {
+    const titleText = this.innerHTML.toLowerCase();
+    var el = document.getElementsByClassName(titleText)[0];
+    console.log(el);
+}
+
+
+/*
+const scRoll = document.getElementById('scRoll');
+scRoll.addEventListener('click', function() {
+    console.log(document.body.offsetHeight);
+    console.log(document.getElementsByClassName('about')[0].offsetHeight);
+    console.log(document.getElementsByClassName('contact')[0].offsetHeight);
+    console.log(document.getElementsByClassName('footer')[0].offsetHeight);
+    console.log(window.pageYOffset);
+});
+*/
+
+
+
+//header scroll effect
+const header = document.getElementsByClassName('header')[0];
+const flip = document.getElementsByClassName('flip')[0];
+const cakes = document.getElementsByClassName('cakes')[0];
+window.addEventListener('scroll',headerScroll);
+
+function headerScroll() {
+  if(window.pageYOffset >= flip.offsetHeight) {
+    cakes.style.paddingTop = header.offsetHeight + 'px';
+    header.classList.add('headerActive');
+  } else {
+    cakes.style.paddingTop = '30px';
+    header.classList.remove('headerActive');
+  }
+}
+
+
+
+//distribution of images
 const flipBoxFront = document.querySelectorAll('.flipBoxFront');
 const flipBoxBack = document.querySelectorAll('.flipBoxBack');
 for(let i = 0; i < flipBoxFront.length; i++) {
   flipBoxFront[i].style.backgroundImage = 'url(images/turn/flip'+[i + 1]+'.jpg)';
   flipBoxBack[i].style.backgroundImage = 'url(images/turn/back'+[i + 1]+'.jpg)';
-  //test
 }
-
-
-
+//flip effect function
 const flipBox = document.querySelectorAll('.flipBox');
 for(let i = 0, length = flipBox.length; i < length; i++) {
   flipBox[i].addEventListener('mouseenter', function(){
