@@ -1,37 +1,56 @@
+//Gives out the scrollToDiv() click function
 const headBtn = document.querySelectorAll('.headBtn');
 for(let i = 0, len = headBtn.length; i < len; i++) {
     headBtn[i].addEventListener('click',scrollToDiv);
 }
-
+//Scroll to div function
 function scrollToDiv() {
-    const titleText = this.innerHTML.toLowerCase();
-    var el = document.getElementsByClassName(titleText)[0];
-    console.log(el);
+  const titleText = this.innerHTML.toLowerCase(),
+        el = document.getElementsByClassName(titleText)[0];
+
+  const home = document.getElementsByClassName('home')[0];
+  if(el == home) {
+    window.scroll(0,0);//Scrolls to top
+    return;
+  }
+
+  const header = document.getElementsByClassName('header')[0],
+        bodyCount = document.body.children,
+        arr = [];
+  for(let i = 0, len = bodyCount.length; i < len; i++) {
+    if(bodyCount[i].offsetHeight == header.offsetHeight){
+      continue;
+    } else {
+      arr.push(bodyCount[i].offsetHeight);
+    }
+  }
+  for(let i = 0, len = arr.length; i < len; i++) {
+    if(el.offsetHeight == arr[i]) {
+      const pos = arr.indexOf(el.offsetHeight);
+      arr.splice(pos);
+    }
+  }
+  const value = arr.reduce(
+    function(a,b) {
+      return a + b;
+    }
+  );
+  window.scroll(0, value);
 }
 
 
-/*
-const scRoll = document.getElementById('scRoll');
-scRoll.addEventListener('click', function() {
-    console.log(document.body.offsetHeight);
-    console.log(document.getElementsByClassName('about')[0].offsetHeight);
-    console.log(document.getElementsByClassName('contact')[0].offsetHeight);
-    console.log(document.getElementsByClassName('footer')[0].offsetHeight);
-    console.log(window.pageYOffset);
-});
-*/
 
 
 
-//header scroll effect
-const header = document.getElementsByClassName('header')[0];
-const flip = document.getElementsByClassName('flip')[0];
-const cakes = document.getElementsByClassName('cakes')[0];
+//Header scroll effect
 window.addEventListener('scroll',headerScroll);
-
 function headerScroll() {
+  const header = document.getElementsByClassName('header')[0],
+        flip = document.getElementsByClassName('flip')[0],
+        cakes = document.getElementsByClassName('cakes')[0];
+
   if(window.pageYOffset >= flip.offsetHeight) {
-    cakes.style.paddingTop = header.offsetHeight + 'px';
+    cakes.style.paddingTop = header.offsetHeight + 30 + 'px';
     header.classList.add('headerActive');
   } else {
     cakes.style.paddingTop = '30px';
@@ -41,14 +60,16 @@ function headerScroll() {
 
 
 
-//distribution of images
-const flipBoxFront = document.querySelectorAll('.flipBoxFront');
-const flipBoxBack = document.querySelectorAll('.flipBoxBack');
+
+
+//Distribution of images
+const flipBoxFront = document.querySelectorAll('.flipBoxFront'),
+      flipBoxBack = document.querySelectorAll('.flipBoxBack');
 for(let i = 0; i < flipBoxFront.length; i++) {
   flipBoxFront[i].style.backgroundImage = 'url(images/turn/flip'+[i + 1]+'.jpg)';
   flipBoxBack[i].style.backgroundImage = 'url(images/turn/back'+[i + 1]+'.jpg)';
 }
-//flip effect function
+//Flip effect function
 const flipBox = document.querySelectorAll('.flipBox');
 for(let i = 0, length = flipBox.length; i < length; i++) {
   flipBox[i].addEventListener('mouseenter', function(){
@@ -65,7 +86,9 @@ for(let i = 0, length = flipBox.length; i < length; i++) {
 
 
 
-// GOOGLE MAPS
+
+
+//Googlemaps
 function myMap() {
     var lang = new google.maps.LatLng(59.324644, 18.070934);
     var mapOptions = {
