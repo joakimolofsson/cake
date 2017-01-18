@@ -35,7 +35,22 @@ function scrollToDiv() {
       return a + b;
     }
   );
-  window.scroll(0, value);
+  const winOffY = Math.ceil(window.pageYOffset / 10) * 10;
+  let divOffY = Math.ceil(value / 10) * 10;
+  function scrollAnime() {
+    if(winOffY > divOffY) {//scroll up
+      divOffY += 10;
+      document.body.scrollTop -= 10;
+      setTimeout(scrollAnime,1);
+    } else if(winOffY < divOffY) {//scroll down
+      divOffY -= 10;
+      document.body.scrollTop += 10;
+      setTimeout(scrollAnime,1);
+    } else if(winOffY == divOffY) {//stops the scrolling
+      return
+    }
+  }
+  scrollAnime();
 }
 
 
