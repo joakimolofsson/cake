@@ -47,10 +47,34 @@ function scrollToDiv() {
       document.body.scrollTop += 10;
       setTimeout(scrollAnime,1);
     } else if(winOffY == divOffY) {//stops the scrolling
-      return
+      return;
     }
   }
   scrollAnime();
+}
+
+
+
+
+
+//Fade in effect
+const fadeIn = document.querySelectorAll('.fadeIn');
+if(window.innerWidth <= 490) {
+  for(let i = 0, len = fadeIn.length; i < len; i++) {
+    fadeIn[i].classList.remove('fadeIn');
+  }
+} else {
+  window.addEventListener('scroll',fadeInEffect);
+  function fadeInEffect() {
+    for(let i = 0, len = fadeIn.length; i < len; i++) {
+      const pos = window.pageYOffset + window.innerHeight;
+      const imagePos = (fadeIn[i].offsetHeight / 2) + fadeIn[i].offsetTop;
+      if(pos > imagePos) {
+        fadeIn[i].classList.add('fadeInActive');
+      }
+    }
+  }
+  fadeInEffect();
 }
 
 
