@@ -80,6 +80,15 @@
   display: block;
   clear: both; }
 
+.fadeIn {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 2s all; }
+
+.fadeInActive {
+  opacity: 1;
+  transform: translateY(0px); }
+
 .cakes {
   padding-top: 30px;
   padding-bottom: 30px; }
