@@ -101,8 +101,7 @@
     margin: 20px 2%;
     padding: 20px;
     display: inline-block;
-    border: #ff9900 2px solid;
-    border-radius: 5px; }
+    border-bottom: #ff9900 2px solid; }
     .cakes .smallCakeBox h2 {
       color: #ff9900;
       margin-top: 15px; }
@@ -121,6 +120,11 @@
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat; }
+  .parallax h1 {
+    text-align: center;
+    color: #ff9900;
+    font-size: 100px;
+    padding-top: 240px; }
 
 .about {
   padding: 40px 10%;
@@ -142,6 +146,21 @@
     text-align: left;
     vertical-align: top; }
 
+.anime {
+  height: 600px;
+  background: red;
+  text-align: center;
+  background-image: url("../images/donutsBg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+  .anime img {
+    padding-top: 200px;
+    transform: rotate(10deg);
+    animation: rotation 3s infinite; }
+@keyframes rotation {
+  50% {
+    transform: rotate(-10deg); } }
 .contact {
   background: black;
   padding: 60px 0 20px 0; }
@@ -232,10 +251,21 @@
   .parallax {
     height: 400px;
     background-attachment: initial; }
+    .parallax h1 {
+      font-size: 60px;
+      padding-top: 165px; }
 
   .about .aboutBox {
     display: inline-block;
     width: 100%; }
+
+  .anime {
+    height: 400px; }
+    .anime img {
+      padding-top: 130px;
+      width: 220px;
+      animation-play-state: paused;
+      transform: rotate(0deg); }
 
   .contact h1 {
     margin-bottom: 30px; }

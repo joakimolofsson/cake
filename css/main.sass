@@ -137,8 +137,7 @@ $darkgrey: #2f2f33
     margin: 20px 2%
     padding: 20px
     display: inline-block
-    border: $orange 2px solid
-    border-radius: 5px
+    border-bottom: $orange 2px solid
 
     h2
       color: $orange
@@ -163,6 +162,12 @@ $darkgrey: #2f2f33
   background-attachment: fixed
   background-position: center
   background-repeat: no-repeat
+
+  h1
+    text-align: center
+    color: $orange
+    font-size: 100px
+    padding-top: 240px
 
 
 
@@ -190,6 +195,28 @@ $darkgrey: #2f2f33
     margin: 20px 0
     text-align: left
     vertical-align: top
+
+
+
+
+
+.anime
+  height: 600px
+  background: red
+  text-align: center
+  background-image: url("../images/donutsBg.jpg")
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+
+  img
+    padding-top: 200px
+    transform: rotate(10deg)
+    animation: rotation 3s infinite
+
+    @keyframes rotation
+      50%
+        transform: rotate(-10deg)
 
 
 
@@ -336,11 +363,24 @@ $darkgrey: #2f2f33
     height: 400px
     background-attachment: initial
 
+    h1
+      font-size: 60px
+      padding-top: 165px
+
   .about
 
     .aboutBox
       display: inline-block
       width: 100%
+
+  .anime
+    height: 400px
+
+    img
+      padding-top: 130px
+      width: 220px
+      animation-play-state: paused
+      transform: rotate(0deg)
 
   .contact
 
